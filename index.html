@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Handwriting Machine</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link href="style.css" rel="stylesheet" />
+    <link href="tailwind.css" rel="stylesheet" />
+  </head>
+  <body class="p-4">
+    <div class="flex gap-4 pb-4">
+      <div class="divide-y divide-blue-400" id="paper">
+        <div><svg id="line1"></svg><button>🔄</button></div>
+        <div><svg id="line2"></svg><button>🔄</button></div>
+        <div><svg id="line3"></svg><button>🔄</button></div>
+        <div><svg id="line4"></svg><button>🔄</button></div>
+        <div><svg id="line5"></svg><button>🔄</button></div>
+        <div><svg id="line6"></svg><button>🔄</button></div>
+        <div><svg id="line7"></svg><button>🔄</button></div>
+        <div><svg id="line8"></svg><button>🔄</button></div>
+        <div><svg id="line9"></svg><button>🔄</button></div>
+        <div><svg id="line10"></svg><button>🔄</button></div>
+        <div><svg id="line11"></svg><button>🔄</button></div>
+        <div><svg id="line12"></svg><button>🔄</button></div>
+        <div><svg id="line13"></svg><button>🔄</button></div>
+        <div><svg id="line14"></svg><button>🔄</button></div>
+        <div><svg id="line15"></svg><button>🔄</button></div>
+        <div><svg id="line16"></svg><button>🔄</button></div>
+        <div><svg id="line17"></svg><button>🔄</button></div>
+        <div><svg id="line18"></svg><button>🔄</button></div>
+        <div><svg id="line19"></svg><button>🔄</button></div>
+        <div><svg id="line20"></svg><button>🔄</button></div>
+        <div><svg id="line21"></svg><button>🔄</button></div>
+        <div><svg id="line22"></svg><button>🔄</button></div>
+        <div><svg id="line23"></svg><button>🔄</button></div>
+        <div><svg id="line24"></svg><button>🔄</button></div>
+        <div><svg id="line25"></svg><button>🔄</button></div>
+        <div><svg id="line26"></svg><button>🔄</button></div>
+        <div><svg id="line27"></svg><button>🔄</button></div>
+      </div>
+      <textarea
+        class="textarea textarea-info text-white text-3xl p-1"
+      ></textarea>
+    </div>
+    <div class="flex gap-4">
+      <button id="loadText" class="btn btn-info">Load Text</button>
+      <button id="home" class="btn btn-success">Home</button>
+      <button id="alignPencil" class="btn btn-warning">Align Pencil</button>
+      <button id="write" class="btn btn-error">Write</button>
+      <label for="style" class="label">Style:</label>
+      <select id="style" class="select select-bordered">
+        <option value="-">&ndash;</option>
+        <option value="44">1</option>
+        <option value="54">2</option>
+        <option value="23" selected>3</option>
+        <option value="1">4</option>
+        <option value="19">5</option>
+        <option value="6">6</option>
+        <option value="30">7</option>
+        <option value="11">8</option>
+        <option value="21">9</option>
+      </select>
+      <label for="side" class="label">Location:</label>
+      <select id="side" class="select select-bordered">
+        <option value="top" selected>Top</option>
+        <option value="bottom">Bottom</option>
+      </select>
+      <input
+        class="input input-bordered"
+        id="custom"
+        placeholder="Custom Command"
+      />
+      <button id="customBtn" class="btn btn-success">Send</button>
+      <button class="btn btn-primary" onclick="serialOutputModal.showModal()">
+        View Serial Output
+      </button>
+      <dialog id="serialOutputModal" class="modal">
+        <div class="modal-box max-w-none">
+          <h3 class="font-bold text-lg">Output:</h3>
+          <p
+            class="py-4 my-4 min-h-4 bg-gray-900 rounded-md max-h-[calc(100vh-15em)] overflow-x-auto overflow-y-auto px-4"
+            id="serialOutput"
+          ></p>
+          <button
+            class="btn btn-error"
+            onclick="serialOutput = []; document.querySelector('#serialOutput').innerText = '';"
+          >
+            Clear Output
+          </button>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+          <button>close</button>
+        </form>
+      </dialog>
+    </div>
+    <label for="file" class="mr-2">Upload Handwriting:</label>
+    <input
+      type="file"
+      class="mt-4 file-input file-input-bordered w-full max-w-xs"
+    />
+    <div
+      class="fixed inset-0 flex justify-center items-center bg-gray-800"
+      id="overlay"
+    >
+      <button class="btn btn-lg btn-info" id="serial">Select Machine</button>
+    </div>
+    <script src="ai.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

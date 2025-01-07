@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+svg {
+  width: 850px;
+  height: 43.5px;
+  background-color: white;
+}
+
+textarea {
+  width: 780px;
+  line-height: 2.7rem !important;
+}
+
+#paper div {
+  height: 43.5px;
+  @apply relative;
+}
+
+#paper button {
+  @apply absolute inset-y-2 right-2;
+}

@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "dependencies": {
+    "@vercel/edge": "^0.1.2"
+  },
+  "devDependencies": {
+    "daisyui": "^3.9.3",
+    "tailwindcss": "^3.3.3"
+  },
+  "scripts": {
+    "tailwind": "tailwindcss -i ./style.css -o ./tailwind.css --watch --minify"
+  }
+}
